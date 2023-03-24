@@ -2,9 +2,8 @@
 title: "Writing effective service files in Linux for your Application"
 datePublished: Sat Mar 11 2023 13:00:57 GMT+0000 (Coordinated Universal Time)
 cuid: clfmjwkmx00030al54wppe4vg
-slug: writing-effective-service-files-in-linux-for-your-application
+slug: effective-service-files-linux
 cover: https://cdn.hashnode.com/res/hashnode/image/stock/unsplash/UQ2Fw_9oApU/upload/d20f7a27dc959070ee3908afc8c8061f.jpeg
-ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1679662850357/f3eb70f8-0ea6-4754-b454-1240ea4b189a.png
 tags: linux, services, systemd
 
 ---
