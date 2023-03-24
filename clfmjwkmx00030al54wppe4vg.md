@@ -3,7 +3,7 @@ title: "Writing effective service files in Linux for your Application"
 datePublished: Sat Mar 11 2023 13:00:57 GMT+0000 (Coordinated Universal Time)
 cuid: clfmjwkmx00030al54wppe4vg
 slug: writing-effective-service-files-in-linux-for-your-application
-cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1679662793049/95f93adc-dfcc-46fc-993d-0437ef86fe6c.png
+cover: https://cdn.hashnode.com/res/hashnode/image/stock/unsplash/UQ2Fw_9oApU/upload/d20f7a27dc959070ee3908afc8c8061f.jpeg
 ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1679662850357/f3eb70f8-0ea6-4754-b454-1240ea4b189a.png
 tags: linux, services, systemd
 
@@ -11,7 +11,7 @@ tags: linux, services, systemd
 
 ## TLDR;
 
-If you would like to write a basic Systemd service file or a Supervior conf, follow the links [here (systemd)](https://gist.github.com/beingadityak/ab2e46988cccc0a5e6dd289065551d8d) and [here (supervisor)](https://gist.github.com/beingadityak/c71e157ae79822c3c3587ee427498317). These contain a basic template of the service file. You can modify the parts of it as per your requirements. Once done, reload the daemons (both supervisor & systemd) and the services will be running.
+If you would like to write a basic systemd service file or a Supervisor conf, follow the links [here (systemd)](https://gist.github.com/beingadityak/ab2e46988cccc0a5e6dd289065551d8d) and [here (supervisor)](https://gist.github.com/beingadityak/c71e157ae79822c3c3587ee427498317). These contain a basic template of the service file. You can modify the parts of it as per your requirements. Once done, reload the daemons (both supervisor & systemd) and the services will be running.
 
 ## Context
 
@@ -89,7 +89,7 @@ We'll now go over the parts mentioned in the template.
 
 ## Process - The Supervisord way
 
-Supervisord is an awesome way to write service files for your application. This enables you to write a single configuration file which is compatible across multiple OS distributions (Ubuntu, Debian, Fedora, CentOS etc.) as well as Windows! ([**although you'll need Cygwin, as described in this SO answer**](https://stackoverflow.com/questions/7629813/is-there-windows-analog-to-supervisord))
+Supervisord is an awesome way to write service files for your application. This enables you to write a single configuration file that is compatible across multiple OS distributions (Ubuntu, Debian, Fedora, CentOS etc.) as well as Windows! ([**although you'll need Cygwin, as described in this SO answer**](https://stackoverflow.com/questions/7629813/is-there-windows-analog-to-supervisord))
 
 You also get an internet socket so that you can view and control the processes on a server through a web UI. This opens up opportunities to develop custom UIs for your processes.
 
@@ -107,7 +107,7 @@ pip install supervisor # for anything else
 
 ### 2\. Generate the initial supervisor config
 
-For most of the installations, you'll have a default config file present in `/etc/supervisor/supervisord.conf` for starting and configuring the Supervisord service. If it's not present, you can generate the conf wtih the following:
+For most of the installations, you'll have a default config file present in `/etc/supervisor/supervisord.conf` for starting and configuring the Supervisord service. If it's not present, you can generate the conf with the following:
 
 ```json
 mkdir -p /etc/supervisor
@@ -127,7 +127,7 @@ stderr_logfile=/var/log/<app-name>.err.log
 stdout_logfile=/var/log/<app-name>.out.log
 ```
 
-**Note**: This particular config is only for a program that you might want to keep it running in the background. However there are multiple options available if you want to use supervisor as something else (grouping programs, FastCGI programs, event listeners etc.). More information is available from the [docs](http://supervisord.org/configuration.html)
+**Note**: This particular config is only for a program that you might want to keep it running in the background. However, there are multiple options available if you want to use supervisor as something else (grouping programs, FastCGI programs, event listeners etc.). More information is available from the [docs](http://supervisord.org/configuration.html)
 
 This template has a few fields which are needed to be understood first. We'll be going over the parts mentioned:
 
@@ -137,9 +137,9 @@ This template has a few fields which are needed to be understood first. We'll be
     
 * `autorestart`: This specifies whether supervisord should restart a process if it exits when it is in the `RUNNING` state.
     
-* `stderr_logfile`: The log file location which will be used for logging errors from the application. If the file does not exists, supervisord will create this file automatically
+* `stderr_logfile`: The log file location which will be used for logging errors from the application. If the file does not exist, supervisord will create this file automatically
     
-* `stdout_logfile`: The log file location which will be used for logging outputs from the application. If the file does not exists, supervisord will create this file automatically.
+* `stdout_logfile`: The log file location which will be used for logging outputs from the application. If the file does not exist, supervisord will create this file automatically.
     
 
 If you want to have additional capabilities such as log file rotation, custom user for starting/stopping the process, additional environment variables etc., you can take a look at the [full example documented by supervisor](http://supervisord.org/configuration.html#program-x-section-example).
@@ -162,4 +162,4 @@ Once the above steps are completed, you can check the status of your service wit
 
 ## Conclusion
 
-With the above mentioned methods, you can now free yourself from managing any tmux/screen sessions for your application and write a service file for the same as well as manually starting applications everytime when the server is rebooted or a new server is created.
+With the above-mentioned methods, you can now free yourself from managing any tmux/screen sessions for your application and write a service file for the same as well as manually start applications whenever the server is rebooted or a new server is created.
